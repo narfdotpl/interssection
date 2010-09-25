@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>First Example Feed</title>
+    <id>urn:uuid:fec738b4-697c-4007-ab3a-b3b22bfadada</id>
+    <updated>2010-09-25T08:03:02Z</updated>
+    <author>
+        <name>Maciej Konieczny</name>
+        <email>hello@narf.pl</email>
+    </author>
+
+    <entry>
+        <title>1</title>
+        <link rel="alternate" type="text/html" href="http://narf.pl"/>
+        <id>urn:uuid:0aaaaa7f-9afb-48d3-bf95-24fa2c122fb4</id>
+        <updated>2010-09-25T08:03:01Z</updated>
+        <summary>one</summary>
+    </entry>
+    <entry>
+        <title>2</title>
+        <link rel="alternate" type="text/html" href="http://narf.pl"/>
+        <id>urn:uuid:29650603-099a-4baa-ae14-a24e652459de</id>
+        <updated>2010-09-25T08:03:02Z</updated>
+        <summary>two</summary>
+    </entry>
+</feed>

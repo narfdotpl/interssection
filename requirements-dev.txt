@@ -1,0 +1,1 @@
+-e svn+http://feedvalidator.googlecode.com/svn/trunk/feedvalidator/src/@1064#egg=feedvalidator
