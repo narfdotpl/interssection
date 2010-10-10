@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
+from feedparser import parse
 from unittest import TestCase, main
 
 from interssection import Feed
@@ -22,8 +23,31 @@ atom = atom12
 
 class TestInput(TestCase):
 
+    def assert_content_is_the_same(self, old, new):
+        old = parse(old)
+        new = parse(new)
+
+        # check meta info
+        for attr_name in ['title', 'id', 'updated']:
+            self.assertEqual(getattr(old.feed, attr_name),
+                             getattr(new.feed, attr_name))
+
+        # check number of entries
+        self.assertEqual(len(old.entries), len(new.entries))
+
+        # check invidual entries
+        sort_key = lambda entry: entry.id
+        old.entries.sort(key=sort_key)
+        new.entries.sort(key=sort_key)
+        for old_entry, new_entry in zip(old.entries, new.entries):
+            for attr_name in ['title', 'id', 'updated', 'summary']:
+                self.assertEqual(getattr(old_entry, attr_name),
+                                 getattr(new_entry, attr_name))
+
+
     def test_read_feed_from_string(self):
-        self.assertEqual(str(Feed(atom)), atom)
+        xml = str(Feed(atom))
+        self.assert_content_is_the_same(atom, xml)
 
     def test_read_feed_from_url(self):
         host = 'localhost'
@@ -31,7 +55,8 @@ class TestInput(TestCase):
         url = 'http://{}:{}/'.format(host, port)
 
         serve_atom(host, port, atom)
-        self.assertEqual(str(Feed(url)), atom)
+        xml = str(Feed(url))
+        self.assert_content_is_the_same(atom, xml)
 
     def test_raise_error_on_incorrect_argument(self):
         for item in [0, 2.72, ('foo',), ['bar'], {'baz': 'quak'}]:
@@ -70,6 +95,23 @@ class TestSetOperations(TestCase):
         self.fail()
 
     def test_dont_support_y(self):
+        self.fail()
+
+
+class TestEntrails(TestCase):
+
+    def test_cache_rendered_template_if_feed_wasnt_changed(self):
+        feed = Feed(atom)
+
+        str(feed)
+        template1 = feed._xml
+
+        str(feed)
+        template2 = feed._xml
+
+        self.assertIs(template1, template2)
+
+    def test_clear_template_cache_if_feed_was_changed(self):
         self.fail()
 
 
