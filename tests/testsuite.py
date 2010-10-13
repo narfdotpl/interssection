@@ -83,10 +83,19 @@ class TestOutput(TestCase):
         self.fail()
 
 
-class TestOptions(TestCase):
+class TestAttributes(TestCase):
 
-    def test_allow_to_set_title(self):
-        self.fail()
+    def test_expose_feed_title_as_attribute(self):
+        feed = Feed(atom)
+        parsed = parse(str(feed))
+        self.assertEqual(feed.title, parsed.feed.title)
+
+    def test_allow_to_change_feed_title(self):
+        feed = Feed(atom)
+        new_title = feed.title + 'foo'
+        feed.title = new_title
+        self.assertEqual(feed.title, new_title)
+        self.assertEqual(parse(str(feed)).feed.title, new_title)
 
 
 class TestSetOperations(TestCase):
@@ -111,8 +120,17 @@ class TestEntrails(TestCase):
 
         self.assertIs(template1, template2)
 
-    def test_clear_template_cache_if_feed_was_changed(self):
-        self.fail()
+    def test_update_template_cache_if_feed_title_was_changed(self):
+        feed = Feed(atom)
+
+        str(feed)
+        template1 = feed._xml
+
+        feed.title += 'foo'
+        str(feed)
+        template2 = feed._xml
+
+        self.assertIsNot(template1, template2)
 
 
 if __name__ == '__main__':

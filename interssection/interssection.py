@@ -43,6 +43,15 @@ class Feed(object):
         if exception:
             raise exception
 
+    @property
+    def title(self):
+        return self._feed.feed.title
+
+    @title.setter
+    @clear_cache
+    def title(self, new_title):
+        self._feed.feed.title = new_title
+
     def __str__(self):
         """
         Render as Atom 1.0.
