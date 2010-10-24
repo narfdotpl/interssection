@@ -7,7 +7,7 @@ from feedparser import parse
 from unittest import TestCase, main
 
 from interssection import Feed
-from tests.feeds import atom12, atom23, atom34
+from tests.feeds import atom12, atom23, atom34, atom_html
 from tests.server import serve_atom
 from tests.validator import validate
 
@@ -16,7 +16,7 @@ __author__ = 'Maciej Konieczny <hello@narf.pl>'
 
 
 # validate test feeds
-for feed in [atom12, atom23, atom34]:
+for feed in [atom12, atom23, atom34, atom_html]:
     validate(feed)
 
 # create handy alias
@@ -76,10 +76,17 @@ class TestInput(TestCase):
 class TestOutput(TestCase):
 
     def test_print_as_valid_feed(self):
+        # check simple case
         feed12 = Feed(atom12)
-        feed23 = Feed(atom23)
         validate(str(feed12))
+
+        # check result of set operation
+        feed23 = Feed(atom23)
         validate(str(feed12 & feed23))
+
+        # check html escaping
+        feed_html = Feed(atom_html)
+        validate(str(feed_html))
 
     def test_give_unique_id_to_resultant_feed(self):
         feed12 = Feed(atom12)

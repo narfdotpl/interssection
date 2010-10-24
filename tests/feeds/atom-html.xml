@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Atom With HTML</title>
+    <id>urn:uuid:f2d9fc3e-58b5-4abf-afdd-f7429e30ec10</id>
+    <updated>2010-10-24T19:48:00Z</updated>
+    <author>
+        <name>Maciej Konieczny</name>
+        <email>hello@narf.pl</email>
+    </author>
+
+    <entry>
+        <title type="html">0 &lt; 0.73</title>
+        <link rel="alternate" type="text/html" href="http://narf.pl"/>
+        <id>urn:uuid:8b5802e5-523b-44a9-9b46-81fd8ce3cbc8</id>
+        <updated>2010-10-24T19:48:00Z</updated>
+        <summary type="html">&lt;p&gt;paragraph&lt;/p&gt;</summary>
+    </entry>
+</feed>
