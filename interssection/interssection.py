@@ -115,6 +115,15 @@ class Feed(object):
         self._entries = parsed.entries
 
     @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    @clear_cache
+    def id(self, new_id):
+        self._id = new_id
+
+    @property
     def title(self):
         return self._title
 

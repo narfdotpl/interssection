@@ -2,6 +2,7 @@
 # encoding: utf-8
 
 import datetime
+from uuid import uuid4
 
 from feedparser import parse
 from unittest import TestCase, main
@@ -124,6 +125,18 @@ class TestOutput(TestCase):
 
 
 class TestAttributes(TestCase):
+
+    def test_expose_feed_id_as_attribute(self):
+        feed = Feed(atom)
+        parsed = parse(str(feed))
+        self.assertEqual(feed.id, parsed.feed.id)
+
+    def test_allow_to_change_feed_id(self):
+        feed = Feed(atom)
+        new_id = uuid4().urn
+        feed.id = new_id
+        self.assertEqual(feed.id, new_id)
+        self.assertEqual(parse(str(feed)).feed.id, new_id)
 
     def test_expose_feed_title_as_attribute(self):
         feed = Feed(atom)
@@ -285,6 +298,18 @@ class TestEntrails(TestCase):
         template2 = feed._xml
 
         self.assertIs(template1, template2)
+
+    def test_update_template_cache_if_feed_id_was_changed(self):
+        feed = Feed(atom)
+
+        str(feed)
+        template1 = feed._xml
+
+        feed.id = uuid4().urn
+        str(feed)
+        template2 = feed._xml
+
+        self.assertIsNot(template1, template2)
 
     def test_update_template_cache_if_feed_title_was_changed(self):
         feed = Feed(atom)
