@@ -16,5 +16,11 @@ with open(join(_current_dir, 'atom23.xml')) as f:
 with open(join(_current_dir, 'atom34.xml')) as f:
     atom34 = f.read()
 
+with open(join(_current_dir, 'atom-min-entry.xml')) as f:
+    atom_min_entry = f.read()
+
+with open(join(_current_dir, 'atom-min-feed.xml')) as f:
+    atom_min_feed = f.read()
+
 with open(join(_current_dir, 'atom-html.xml')) as f:
     atom_html = f.read()

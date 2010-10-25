@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Minimal Atom Feed</title>
+    <id>urn:uuid:2c93c0db-3e1f-481a-ae34-ac1aba7e9d44</id>
+    <updated>2010-10-25T12:55:00Z</updated>
+    <author>
+        <name>Maciej Konieczny</name>
+    </author>
+</feed>

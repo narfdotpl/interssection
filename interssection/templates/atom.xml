@@ -3,9 +3,11 @@
     <title type="html">{{ title }}</title>
     <id>{{ id }}</id>
     <updated>{{ updated }}</updated>
-    <author>
-        <name>{{ author }}</name>
-    </author>
+    {% if author %}
+        <author>
+            <name>{{ author }}</name>
+        </author>
+    {% endif %}
 
     {% for entry in entries %}
         <entry>
@@ -17,6 +19,11 @@
             <id>{{ entry.id }}</id>
             <updated>{{ entry.updated }}</updated>
             <summary type="html">{{ entry.summary }}</summary>
+            {% if entry.author %}
+                <author>
+                    <name>{{ entry.author }}</name>
+                </author>
+            {% endif %}
         </entry>
     {% endfor %}
 </feed>

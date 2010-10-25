@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Atom With Minimal Entry</title>
+    <id>urn:uuid:a3d806f1-c4a3-4d07-b874-3019116e8198</id>
+    <updated>2010-10-25T13:12:00Z</updated>
+
+    <entry>
+        <title>waka-waka</title>
+        <link rel="alternate" type="text/html" href="http://narf.pl"/>
+        <id>urn:uuid:358793fe-7401-4339-b236-b88afe7083cc</id>
+        <updated>2010-10-25T13:12:00Z</updated>
+        <author>
+            <name>Maciej Konieczny</name>
+        </author>
+    </entry>
+</feed>

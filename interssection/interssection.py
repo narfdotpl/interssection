@@ -111,7 +111,7 @@ class Feed(object):
 
         # set attributes
         for name in ['id', 'title', 'updated', 'author']:
-            setattr(self, '_' + name, parsed.feed[name])
+            setattr(self, '_' + name, parsed.feed.get(name))
         self._entries = parsed.entries
 
     @property
