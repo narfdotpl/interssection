@@ -10,8 +10,9 @@ from interssection.templates import render_as_atom
 from interssection.utils import get_iso8601_datetime, get_urn
 
 
-__all__ = ['__author__', 'Feed']
+__all__ = ['__author__', '__version__', 'Feed']
 __author__ = 'Maciej Konieczny <hello@narf.pl>'
+__version__ = '0.1.0'
 
 
 class MetaFeed(type):

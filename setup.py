@@ -6,7 +6,7 @@ from distutils.core import setup
 
 setup(
     name='interssection',
-    version='0.1.0dev',
+    version='0.1.0',
     description='treat Atom and RSS feeds like sets',
     author='Maciej Konieczny',
     author_email='hello@narf.pl',
