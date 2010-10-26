@@ -7,9 +7,6 @@ from feedvalidator import validateString
 from feedvalidator.logging import Error
 
 
-__author__ = 'Maciej Konieczny <hello@narf.pl>'
-
-
 class ValidationError(Exception):
 
     def __init__(self, event):

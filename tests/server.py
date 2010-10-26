@@ -5,9 +5,6 @@ from threading import Thread
 from wsgiref.simple_server import make_server
 
 
-__author__ = 'Maciej Konieczny <hello@narf.pl>'
-
-
 def serve_atom(host, port, content):
     """
     Run HTTP server in separate thread on given host and port, serve given

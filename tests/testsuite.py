@@ -14,9 +14,6 @@ from tests.server import serve_atom
 from tests.validator import validate
 
 
-__author__ = 'Maciej Konieczny <hello@narf.pl>'
-
-
 # validate test feeds
 for feed in [atom12, atom23, atom34, atom_min_entry, atom_min_feed, atom_html]:
     validate(feed)
@@ -67,7 +64,7 @@ class TestInput(TestCase):
             Feed()
 
     def test_raise_error_on_incorrect_argument(self):
-        for item in [0, 2.72, ('foo',), ['bar'], {'baz': 'quak'}]:
+        for item in [0, 2.72, ('foo',), ['bar'], {'baz': 'quux'}]:
             with self.assertRaises(TypeError):
                 Feed(item)
 
