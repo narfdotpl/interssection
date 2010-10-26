@@ -1,6 +1,3 @@
-`DRAFT`
-
-
 interssection
 =============
 
@@ -86,8 +83,12 @@ Meta
 
 interssection is written by [Maciej Konieczny][].  This software is
 released into the [public domain][] and uses [semantic versioning][] for
-release numbering.
+release numbering.  Internally it uses [feedparser][], [jinja2][], and
+[feedvalidator][].
 
   [Maciej Konieczny]: http://narf.pl/
   [public domain]: http://unlicense.org/
   [semantic versioning]: http://semver.org/
+  [feedparser]: http://feedparser.org/
+  [jinja2]: http://jinja.pocoo.org/
+  [feedvalidator]: http://feedvalidator.org/
