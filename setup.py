@@ -13,5 +13,5 @@ setup(
     url='http://github.com/narfdotpl/interssection',
     packages=['interssection', 'interssection.templates'],
     package_data={'interssection.templates': ['*.xml']},
-    install_requires=['Jinja2==2.5.2', 'feedparser==4.1']
+    install_requires=['Jinja2==2.11.3', 'feedparser==4.1']
 )
